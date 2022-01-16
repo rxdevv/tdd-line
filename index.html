@@ -133,12 +133,29 @@
                           "aspectMode": "cover"
                         },
                         {
-                          "type": "text",
-                          "text": "You can enter the theater by using this code instead of a ticket",
-                          "margin": "xxl",
-                          "size": "xs",
-                          "color": "#AAAAAA",
-                          "wrap": true
+                          "type": "box",
+                          "layout": "horizontal",
+                          "spacing": "md",
+                          "contents": [
+                            {
+                              "type": "button",
+                              "style": "primary",
+                              "action": {
+                                "type": "uri",
+                                "label": "Sign In",
+                                "uri": "https://example.com"
+                              }
+                            },
+                            {
+                              "type": "button",
+                              "style": "danger",
+                              "action": {
+                                "type": "uri",
+                                "label": "Sign Un",
+                                "uri": "https://example.com"
+                              }
+                            },
+                          ]
                         }
                       ]
                     }
