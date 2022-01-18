@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SHARE</title>
+    </head>
+    <body>
+
+        <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+        <script>
+        const queryString = window.location.search
+        const urlParams = new URLSearchParams(queryString)
+        const urlImage = urlParams.get('imgurl')
+        const description = urlParams.get('des')
+        async function main() {
+            await liff.init({ liffId: "1656810289-OJ1z25lK" })
+            
+            shareMsg(urlImage, description)
+            
+            // if(liff.isLoggedIn()){
+
+            // }else{
+            //     liff.login()
+            // } 
+        }
+        main()
+        async function shareMsg(urlImage, description){
+            const res = await liff.shareTargetPicker([
+            {
+                "type": "flex",
+                "altText": urlImage , // Description
+                "contents": {
+                    "type": "bubble",
+                    "hero": {
+                    "type": "image",
+                    "url": description ,
+                    "size": "full",
+                    "aspectMode": "cover",
+                    "action": {
+                        "type": "uri",
+                        "uri": "http://linecorp.com/"
+                    }
+                    },
+                    "footer": {
+                    "type": "box",
+                    "layout": "horizontal",
+                    "spacing": "sm",
+                    "contents": [
+                        {
+                        "type": "button",
+                        "style": "link",
+                        "height": "sm",
+                        "action": {
+                            "type": "uri",
+                            "label": "สมัครสมาชิก",
+                            "uri": "https://linecorp.com"
+                        },
+                        "color": "#FFFFFF"
+                        },
+                        {
+                        "type": "button",
+                        "style": "primary",
+                        "height": "sm",
+                        "action": {
+                            "type": "uri",
+                            "label": "Share",
+                            "uri": "https://linecorp.com"
+                        },
+                        "color": "#FF0000"
+                        },
+                        {
+                        "type": "spacer",
+                        "size": "sm"
+                        }
+                    ],
+                    "flex": 0,
+                    "backgroundColor": "#000000"
+                    }
+                }
+                }
+            ])
+        }
+    </script>
+    </body>
+</html>
