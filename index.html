@@ -108,7 +108,7 @@ document.getElementById("default-tab").click();
     }
 
     async function shareMsg() {
-      await liff.shareTargetPicker([
+      const res =  await liff.shareTargetPicker([
         {
           "type": "flex",
           "altText": document.getElementById('description').value , // Description
@@ -162,7 +162,27 @@ document.getElementById("default-tab").click();
           }
         }
       ])
+      if(res){
+        alert(`[${res.status}] Message sent`)
+      }else{
+        // ผู้ใช้งานกดปิดหน้า ShareTargetPicker หรือใช้แอป LINE เวอร์ชันต่ำกว่า 10.10.1
+        
+        // ใช้ liff.getLineVersion() เพื่อดึงเลขเวอร์ชันจากแอป LINE ของผู้ใช้
+        const [majorVer, minorVer, patchVer] = (liff.getLineVersion() || "").split('.');
+
+        // alert ในกรณที่ใช้งาน LIFF ใน external browser ค่า minorVer จะเป็น undefined
+        if (minorVer === undefined) {
+          alert('ShareTargetPicker was canceled in external browser')
+          return
+        }
+
+        // alert ในกรณีที่ผู้ใช้งานใช้แอป LINE v10.10.1 หรือเวอร์ชันใหม่กว่า
+        if (parseInt(majorVer) >= 10 && parseInt(minorVer) >= 10 && parseInt(patchVer) > 0) {
+          alert('ShareTargetPicker was canceled in LINE app')
+        }
+      }
       document.getElementById('imageUrl').value = ''
+      document.getElementById('description').value = ''
     }
 
     function logOut() {
