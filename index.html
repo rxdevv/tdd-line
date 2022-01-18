@@ -301,9 +301,9 @@ document.getElementById("default-tab").click();
       document.getElementById("language").value = liff.getLanguage()
       document.getElementById("version").value = liff.getVersion()
       document.getElementById("accessToken").value = liff.getAccessToken()
-      document.getElementById("isInClient").value = liff.isInClient()
+      document.getElementById("isInClient").append(liff.isInClient())
 
-      if(liff.isInClient().value){
+      if(liff.isInClient()){
         document.getElementById("btnLogOut").style.display = "none"
       } else {
         document.getElementById("btnMsg").style.display = "none"
