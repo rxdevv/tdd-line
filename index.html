@@ -297,9 +297,9 @@ document.getElementById("default-tab").click();
     }
 
     function getEnvironment() {
-      document.getElementById("os").value = liff.getOs()
-      document.getElementById("language").value = liff.getLanguage()
-      document.getElementById("version").value = liff.getVersion()
+      document.getElementById("os").append(liff.getOS())
+      document.getElementById("language").append(liff.getLanguage())
+      document.getElementById("version").append(liff.getVersion())
       document.getElementById("accessToken").value = liff.getAccessToken()
       document.getElementById("isInClient").append(liff.isInClient())
 
