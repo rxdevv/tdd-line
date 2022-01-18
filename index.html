@@ -297,13 +297,13 @@ document.getElementById("default-tab").click();
     }
 
     function getEnvironment() {
-      document.getElementById("os").value = liff.getOs()
-      document.getElementById("language").append(liff.getLanguage())
-      document.getElementById("version").append(liff.getVersion())
+      document.getElementById("os").value = liff.getOS()
+      document.getElementById("language").value = liff.getLanguage()
+      document.getElementById("version").value = liff.getVersion()
       document.getElementById("accessToken").value = liff.getAccessToken()
-      document.getElementById("isInClient").append(liff.isInClient())
+      document.getElementById("isInClient").value = liff.isInClient()
 
-      if(liff.isInClient()){
+      if(liff.isInClient().value){
         document.getElementById("btnLogOut").style.display = "none"
       } else {
         document.getElementById("btnMsg").style.display = "none"
