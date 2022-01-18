@@ -32,12 +32,10 @@
             <div id="first" class="p-4">
               <p><b>Image Url :</b> </p><input type="text" name="imageUrl" id="imageUrl" class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700" placeholder="Enter url image from https://www.picz.in.th/">
               <p><b>Description :</b> </p><input type="text" name="description" id="description" class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700" placeholder="Enter Description">
-              <button id="btnMsg" onclick="sendMsg()" class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow my-2">Send Message</button><br>
-              <button id="btnShare" onclick="shareMsg()" class="bg-green-500 hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow my-2">Share Target Picker</button><br>
-              <button onclick="openWindow()" hidden class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow my-2">Open Window</button><br>
-              <button id="btnScanCode" onclick="scanCode()" class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow my-2">Scan Code</button><br>
-              <button id="btnLogOut" onclick="logOut()" class="bg-red hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow my-2">Log Out</button><br>
-              <button id="btnClose" onclick="closed()" class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow my-2">Close</button><br>
+              <div class="flex justify-around space-arounded">
+                <button id="btnShare" onclick="shareMsg()" class="bg-green-500 text-white rounded hover:bg-green-600 duration-300 shadow-md p-3">Send Card</button><br>
+                <button id="btnLogOut" onclick="logOut()" class="bg-red-500 text-white rounded hover:bg-red-600 duration-300 shadow-md p-3">Log Out</button><br>
+              </div>
             </div>
             <div id="second" class="hidden p-4">
               <p><b>AccessToken:</b> </p><input type="text" id="accessToken" readonly class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700">
@@ -274,15 +272,15 @@ document.getElementById("default-tab").click();
         // getUserProfile()
         // getContext()
         // getFriendship()
-      if(liff.isLoggedIn()){
-        getEnvironment()
-        getUserProfile()
-        getContext()
-        getFriendship()
-        // createUniversalLink()
-      }else{
-        liff.login()
-      }
+      // if(liff.isLoggedIn()){
+      //   getEnvironment()
+      //   getUserProfile()
+      //   getContext()
+      //   getFriendship()
+      //   // createUniversalLink()
+      // }else{
+      //   liff.login()
+      // }
     }
     main()
   </script>
