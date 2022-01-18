@@ -31,6 +31,7 @@
           <!-- Tab Contents -->
           <div id="tab-contents">
             <div id="first" class="p-4">
+              <p><b>Image Url:</b> </p><input type="text" name="imageUrl" class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700">
               <button id="btnMsg" onclick="sendMsg()" class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow my-2">Send Message</button><br>
               <button id="btnShare" onclick="shareMsg()" class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow my-2">Share Target Picker</button><br>
               <button onclick="openWindow()" class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow my-2">Open Window</button><br>
@@ -107,120 +108,54 @@ document.getElementById("default-tab").click();
 
     async function shareMsg() {
       await liff.shareTargetPicker([
-        {
-          "type": "flex",
-          "altText": "Flex Message",
-          "contents": {
-            "type": "bubble",
-            "body": {
-              "type": "box",
-              "layout": "vertical",
-              "spacing": "md",
-              "contents": [
-                {
-                  "type": "text",
-                  "text": "BROWN'S ADVENTURE",
-                  "size": "xl",
-                  "gravity": "center",
-                  "weight": "bold",
-                  "wrap": true
-                },
-                {
-                  "type": "box",
-                  "layout": "vertical",
-                  "spacing": "sm",
-                  "margin": "lg",
-                  "contents": [
-                    {
-                      "type": "box",
-                      "layout": "baseline",
-                      "spacing": "sm",
-                      "contents": [
-                        {
-                          "type": "text",
-                          "text": "Date",
-                          "flex": 1,
-                          "size": "sm",
-                          "color": "#AAAAAA"
-                        },
-                        {
-                          "type": "text",
-                          "text": "Monday 25, 9:00PM",
-                          "flex": 4,
-                          "size": "sm",
-                          "color": "#666666",
-                          "wrap": true
-                        }
-                      ]
-                    },
-                    {
-                      "type": "box",
-                      "layout": "baseline",
-                      "spacing": "sm",
-                      "contents": [
-                        {
-                          "type": "text",
-                          "text": "Place",
-                          "flex": 1,
-                          "size": "sm",
-                          "color": "#AAAAAA"
-                        },
-                        {
-                          "type": "text",
-                          "text": "LINE Thailand",
-                          "flex": 4,
-                          "size": "sm",
-                          "color": "#666666",
-                          "wrap": true
-                        }
-                      ]
-                    },
-                    {
-                      "type": "box",
-                      "layout": "vertical",
-                      "margin": "xxl",
-                      "contents": [
-                        {
-                          "type": "spacer"
-                        },
-                        {
-                          "type": "image",
-                          "url": "https://sv1.picz.in.th/images/2022/01/18/nOdhJt.jpg",
-                          "size": "xl",
-                          "aspectMode": "cover"
-                        },
-                        
-                      ]
-                    },
-                    {
-                      "type": "box",
-                      "layout": "horizontal",
-                      "contents": [
-                        {
-                          "type": "button",
-                          "style": "primary",
-                          "action": {
-                            "type": "uri",
-                            "label": "Sign In",
-                            "uri": "https://example.com"
-                          }
-                        },
-                        {
-                          "type": "button",
-                          "action": {
-                            "type": "uri",
-                            "label": "Sign Up",
-                            "uri": "https://example.com"
-                          }
-                        },
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
+      {
+        "type": "bubble",
+        "hero": {
+          "type": "image",
+          "url": document.getElementsByName('imageUrl').value ,
+          "size": "full",
+          "aspectMode": "cover",
+          "action": {
+            "type": "uri",
+            "uri": "http://linecorp.com/"
           }
+        },
+        "footer": {
+          "type": "box",
+          "layout": "horizontal",
+          "spacing": "sm",
+          "contents": [
+            {
+              "type": "button",
+              "style": "link",
+              "height": "sm",
+              "action": {
+                "type": "uri",
+                "label": "สมัครสมาชิก",
+                "uri": "https://linecorp.com"
+              },
+              "color": "#FFFFFF"
+            },
+            {
+              "type": "button",
+              "style": "primary",
+              "height": "sm",
+              "action": {
+                "type": "uri",
+                "label": "Share",
+                "uri": "https://linecorp.com"
+              },
+              "color": "#FF0000"
+            },
+            {
+              "type": "spacer",
+              "size": "sm"
+            }
+          ],
+          "flex": 0,
+          "backgroundColor": "#000000"
         }
+      }
       ])
     }
 
