@@ -39,14 +39,30 @@
               </div>
             </div>
             <div id="second" class="hidden p-4">
-              <p><b>AccessToken:</b> </p><input type="text" id="accessToken" readonly class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700">
-              <p><b>userId:</b> </p><input type="text" id="userId" readonly class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700">
-              <p><b>email:</b> </p><input type="text" id="decodedIDToken" readonly class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700">
-              <p><b>type:</b> </p><input type="text" id="type" readonly class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700">
-              <p><b>viewType:</b> </p><input type="text" id="viewType" readonly class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700">
-              <p><b>utouId:</b> </p><input type="text" id="utouId" readonly class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700">
-              <p><b>roomId:</b> </p><input type="text" id="roomId" readonly class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700">
-              <p><b>groupId:</b> </p><input type="text" id="groupId" readonly class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700">
+              <div id="divToken">
+                <p><b>AccessToken:</b> </p><input type="text" id="accessToken" readonly class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700">
+              </div>
+              <div id="divUserId">
+                <p><b>userId:</b> </p><input type="text" id="userId" readonly class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700">
+              </div>
+              <div id="divIdToken">
+                <p><b>email:</b> </p><input type="text" id="decodedIDToken" readonly class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700">
+              </div>
+              <div id="divType">
+                <p><b>type:</b> </p><input type="text" id="type" readonly class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700">
+              </div>
+              <div id="divViewType">
+                <p><b>viewType:</b> </p><input type="text" id="viewType" readonly class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700">
+              </div>
+              <div id="divUtouId">
+                <p><b>utouId:</b> </p><input type="text" id="utouId" readonly class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700">
+              </div>
+              <div id="divRoomId">
+                <p><b>roomId:</b> </p><input type="text" id="roomId" readonly class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700">
+              </div>
+              <div id="divGroupId">
+                <p><b>groupId:</b> </p><input type="text" id="groupId" readonly class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700">
+              </div>
             </div>
             <div id="third" class="hidden p-4">
               <p><b>OS:</b> </p><input type="text" id="os" readonly class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700">
@@ -234,11 +250,36 @@ document.getElementById("default-tab").click();
     }
 
     function getContext() {
-      document.getElementById("type").value = liff.getContext().type
-      document.getElementById("viewType").value = liff.getContext().viewwType
-      document.getElementById("utouId").value = liff.getContext().utouId
-      document.getElementById("roomId").value = liff.getContext().roomId
-      document.getElementById("groupId").value = liff.getContext().groupId
+
+      if(liff.getContext().type){
+        document.getElementById("type").value = liff.getContext().type
+      }else{
+        document.getElementById("divType").style.display = "none"
+      }
+
+      if(liff.getContext().viewwType){
+        document.getElementById("viewType").value = liff.getContext().viewType
+      }else{
+        document.getElementById("divViewType").style.display = "none"
+      }
+      
+      if(liff.getContext().utouId){
+        document.getElementById("utouId").value = liff.getContext().utouId
+      }else{
+        document.getElementById("divUtouId").style.display = "none"
+      }
+
+      if(liff.getContext().roomId){
+        document.getElementById("roomId").value = liff.getContext().roomId
+      }else{
+        document.getElementById("divRoomId").style.display = "none"
+      }
+
+      if(liff.getContext().groupId){
+        document.getElementById("groupId").value = liff.getContext().groupId
+      }else{
+        document.getElementById("divGroupId").style.display = "none"
+      }
     }
 
     async function getUserProfile() {
