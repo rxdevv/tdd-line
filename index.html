@@ -122,11 +122,11 @@ document.getElementById("default-tab").click();
 
     }
 
-    function share() {
-      const imgUrl = document.getElementById('imageUrl').value
-      const description = document.getElementById('description').value
-      window.location.href = `./share.html?imgurl=${imgUrl}&des=${description}`
-    }
+    // function share() {
+    //   const imgUrl = document.getElementById('imageUrl').value
+    //   const description = document.getElementById('description').value
+    //   return `./share.html?imgurl=${imgUrl}&des=${description}`
+    // }
 
     async function shareMsg() {
       const res =  await liff.shareTargetPicker([
