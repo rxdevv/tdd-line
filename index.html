@@ -10,59 +10,58 @@
   </head>
   <body>
     <div class="p-10 flex justify-center">
-      <div class="max-w-sm rounded overflow-hidden shadow-lg p-10">
+      <div class="max-w-md rounded overflow-hidden shadow-lg p-10">
         <img class="rounded-full" style="width: 100%" id="pictureUrl"
           alt="Mountain">
-        <div class="px-6 py-4">
+        <div class="py-4">
           <p class="text-gray-700 text-base" hidden></p>
           <p class="font-bold text-xl mb-2" id="displayName"></p>
           <p class="text-gray-700 text-base" id="statusMessage"></p>
-          <ul id="tabs" class="inline-flex w-full px-1 pt-2 ">
+          <ul id="tabs" class="inline-flex w-full pt-2 duration-300">
             <li class="px-4 py-2 -mb-px font-semibold text-gray-800 border-b-2 border-blue-400 rounded-t opacity-50">
-              <a id="default-tab" href="#first">All</a>
+              <a id="default-tab" href="#first">Console</a>
             </li>
             <li class="px-4 py-2 font-semibold text-gray-800 rounded-t opacity-50">
-              <a href="#second">Clothes</a>
+              <a href="#second">Description</a>
             </li>
             <li class="px-4 py-2 font-semibold text-gray-800 rounded-t opacity-50">
-              <a href="#third">Electronics</a>
-            </li>
-            <li class="px-4 py-2 font-semibold text-gray-800 rounded-t opacity-50">
-              <a href="#fourth">Others</a>
+              <a href="#third">Environment</a>
             </li>
           </ul>
           <!-- Tab Contents -->
           <div id="tab-contents">
             <div id="first" class="p-4">
-              First tab
+              <button id="btnMsg" onclick="sendMsg()" class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow my-2">Send Message</button><br>
+              <button id="btnShare" onclick="shareMsg()" class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow my-2">Share Target Picker</button><br>
+              <button onclick="openWindow()" class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow my-2">Open Window</button><br>
+              <button id="btnScanCode" onclick="scanCode()" class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow my-2">Scan Code</button><br>
+              <button id="btnLogOut" onclick="logOut()" class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow my-2">Log Out</button><br>
+              <button id="btnClose" onclick="closed()" class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow my-2">Close</button><br>
             </div>
             <div id="second" class="hidden p-4">
-              Second tab
+              <p id="accessToken" ><b>AccessToken:</b> </p>
+              <p id="userId" ><b>userId:</b> </p>
+              <p id="displayName" ><b>displayName:</b> </p>
+              <p id="statusMessage" ><b>statusMessage:</b> </p>
+              <p id="decodedIDToken" ><b>email:</b> </p>
+              <p id="type" ><b>type:</b> </p>
+              <p id="viewType" ><b>viewType:</b> </p>
+              <p id="utouId" ><b>utouId:</b> </p>
+              <p id="roomId" ><b>roomId:</b> </p>
+              <p id="groupId" ><b>groupId:</b> </p>
             </div>
             <div id="third" class="hidden p-4">
-              Third tab
-            </div>
-            <div id="fourth" class="hidden p-4">
-              Fourth tab
+              <p id="os" ><b>OS:</b> </p>
+              <p id="language" ><b>Language:</b> </p>
+              <p id="version" ><b>Version:</b> </p>
+              <p id="isInClient" ><b>isInClient:</b> </p>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <p id="os" hidden><b>OS:</b> </p>
-    <p id="language" hidden><b>Language:</b> </p>
-    <p id="version" hidden><b>Version:</b> </p>
-    <p id="isInClient" hidden><b>isInClient:</b> </p>
-    <p id="accessToken" hidden><b>AccessToken:</b> </p>
-    <p id="userId" hidden><b>userId:</b> </p>
-    <p id="displayName" hidden><b>displayName:</b> </p>
-    <p id="statusMessage" hidden><b>statusMessage:</b> </p>
-    <p id="decodedIDToken" hidden><b>email:</b> </p>
-    <p id="type" hidden><b>type:</b> </p>
-    <p id="viewType" hidden><b>viewType:</b> </p>
-    <p id="utouId" hidden><b>utouId:</b> </p>
-    <p id="roomId" hidden><b>roomId:</b> </p>
-    <p id="groupId" hidden><b>groupId:</b> </p>
+    
+    
     <p id="friendship" hidden><b>isFriendship:</b> </p>
     <p id="scanCode" hidden><b>Code:</b> </p>
     <p id="isLoggedIn" hidden><b>isLoggedIn:</b> </p>
@@ -70,12 +69,7 @@
     <p id="universalLink2" hidden><b>Universal Link with Query params:</b> </p>
     <p hidden><a href="liff/path/?param=9">Link to Path</a></p>
 
-    <button id="btnMsg" onclick="sendMsg()" hidden>Send Message</button>
-    <button id="btnShare" onclick="shareMsg()" hidden>Share Target Picker</button>
-    <button onclick="openWindow()" hidden>Open Window</button>
-    <button id="btnScanCode" onclick="scanCode()" hidden>Scan Code</button>
-    <button id="btnLogOut" onclick="logOut()" hidden>Log Out</button>
-    <button id="btnClose" onclick="closed()" hidden>Close</button>
+    
 
     <script src="js/vconsole.min.js"></script>
     <script>
@@ -325,15 +319,15 @@ document.getElementById("default-tab").click();
         // getUserProfile()
         // getContext()
         // getFriendship()
-      if(liff.isLoggedIn()){
-        getEnvironment()
-        getUserProfile()
-        getContext()
-        getFriendship()
-        // createUniversalLink()
-      }else{
-        liff.login()
-      }
+      // if(liff.isLoggedIn()){
+      //   getEnvironment()
+      //   getUserProfile()
+      //   getContext()
+      //   getFriendship()
+      //   // createUniversalLink()
+      // }else{
+      //   liff.login()
+      // }
     }
     main()
   </script>
