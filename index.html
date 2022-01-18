@@ -41,8 +41,6 @@
             <div id="second" class="hidden p-4">
               <p><b>AccessToken:</b> </p><input type="text" id="accessToken" readonly class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700">
               <p><b>userId:</b> </p><input type="text" id="userId" readonly class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700">
-              <p><b>displayName:</b> </p><input type="text" id="displayName" readonly class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700">
-              <p><b>statusMessage:</b> </p><input type="text" id="statusMessage" readonly class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700">
               <p><b>email:</b> </p><input type="text" id="decodedIDToken" readonly class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700">
               <p><b>type:</b> </p><input type="text" id="type" readonly class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700">
               <p><b>viewType:</b> </p><input type="text" id="viewType" readonly class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700">
@@ -280,19 +278,19 @@ document.getElementById("default-tab").click();
     }
 
     function getContext() {
-      document.getElementById("type").append(liff.getContext().type)
-      document.getElementById("viewType").append(liff.getContext().viewwType)
-      document.getElementById("utouId").append(liff.getContext().utouId)
-      document.getElementById("roomId").append(liff.getContext().roomId)
-      document.getElementById("groupId").append(liff.getContext().groupId)
+      document.getElementById("type").value = liff.getContext().type
+      document.getElementById("viewType").value = liff.getContext().viewwType
+      document.getElementById("utouId").value = liff.getContext().utouId
+      document.getElementById("roomId").value = liff.getContext().roomId
+      document.getElementById("groupId").value = liff.getContext().groupId
     }
 
     async function getUserProfile() {
       const profile = await liff.getProfile()
       document.getElementById("pictureUrl").src = profile.pictureUrl
       document.getElementById("userId").value = profile.userId
-      document.getElementById("statusMessage").value = profile.statusMessage
-      document.getElementById("displayName").value = profile.displayName
+      document.getElementById("statusMessage").append(profile.statusMessage)
+      document.getElementById("displayName").append(profile.displayName)
       document.getElementById("decodedIDToken").value = liff.getDecodedIDToken().email
     }
 
