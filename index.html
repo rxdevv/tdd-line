@@ -290,10 +290,10 @@ document.getElementById("default-tab").click();
     async function getUserProfile() {
       const profile = await liff.getProfile()
       document.getElementById("pictureUrl").src = profile.pictureUrl
-      document.getElementById("userId").append(profile.userId)
-      document.getElementById("statusMessage").append(profile.statusMessage)
-      document.getElementById("displayName").append(profile.displayName)
-      document.getElementById("decodedIDToken").append(liff.getDecodedIDToken().email)
+      document.getElementById("userId").value = profile.userId
+      document.getElementById("statusMessage").value = profile.statusMessage
+      document.getElementById("displayName").value = profile.displayName
+      document.getElementById("decodedIDToken").value = liff.getDecodedIDToken().email
     }
 
     function getEnvironment() {
