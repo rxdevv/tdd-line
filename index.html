@@ -33,6 +33,7 @@
               <p><b>Image Url :</b> </p><input type="text" name="imageUrl" id="imageUrl" class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700" placeholder="Enter url image from https://www.picz.in.th/">
               <p><b>Description :</b> </p><input type="text" name="description" id="description" class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700" placeholder="Enter Description">
               <p><a href="https://www.picz.in.th/" target="_blank" class="text-blue-500 align-center">รับลิงค์รูปภาพที่นี่</a></p>
+              <p><button onclick="share()" target="_blank" class="text-blue-500 align-center">share</button></p>
               <div class="flex justify-around space-arounded pt-4">
                 <button id="btnShare" onclick="shareMsg()" class="bg-green-500 text-white rounded hover:bg-green-600 duration-300 shadow-md p-3">Send Card</button><br>
                 <button id="btnLogOut" onclick="logOut()" class="bg-red-500 text-white rounded hover:bg-red-600 duration-300 shadow-md p-3">Log Out</button><br>
@@ -121,6 +122,12 @@ document.getElementById("default-tab").click();
 
     }
 
+    function share() {
+      const imgUrl = document.getElementById('imageUrl').value
+      const description = document.getElementById('description').value
+      window.location.href = `./share.html?imgurl=${imgUrl}&des=${description}`
+    }
+
     async function shareMsg() {
       const res =  await liff.shareTargetPicker([
       {
@@ -161,7 +168,7 @@ document.getElementById("default-tab").click();
                   "action": {
                     "type": "uri",
                     "label": "แชร์เลย",
-                    "uri": `https://rxdevv.github.io/tdd-line/share.html?urlimg=${document.getElementById('imageUrl').value}&des=${document.getElementById('description').value}`
+                    "uri": `https://rxdevv.github.io/tdd-line/share.html?imgurl=${document.getElementById('imageUrl').value}&des=${document.getElementById('description').value}`
                   },
                   "color": "#FF0000"
                 },
