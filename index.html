@@ -108,53 +108,57 @@ document.getElementById("default-tab").click();
 
     async function shareMsg() {
       await liff.shareTargetPicker([
-      {
-        "type": "bubble",
-        "hero": {
-          "type": "image",
-          "url": "https://sv1.picz.in.th/images/2022/01/18/nOdhJt.jpg" ,
-          "aspectMode": "cover",
-          "action": {
-            "type": "uri",
-            "uri": "http://linecorp.com/"
-          }
-        },
-        "footer": {
-          "type": "box",
-          "layout": "horizontal",
-          "spacing": "sm",
-          "contents": [
-            {
-              "type": "button",
-              "style": "link",
-              "height": "sm",
+        {
+          "type": "flex",
+          "altText": "", // Description
+          "contents": {
+            "type": "bubble",
+            "hero": {
+              "type": "image",
+              "url": "https://sv1.picz.in.th/images/2022/01/18/nOdhJt.jpg" ,
+              "aspectMode": "cover",
               "action": {
                 "type": "uri",
-                "label": "สมัครสมาชิก",
-                "uri": "https://linecorp.com"
-              },
-              "color": "#FFFFFF"
+                "uri": "http://linecorp.com/"
+              }
             },
-            {
-              "type": "button",
-              "style": "primary",
-              "height": "sm",
-              "action": {
-                "type": "uri",
-                "label": "Share",
-                "uri": "https://linecorp.com"
-              },
-              "color": "#FF0000"
-            },
-            {
-              "type": "spacer",
-              "size": "sm"
+            "footer": {
+              "type": "box",
+              "layout": "horizontal",
+              "spacing": "sm",
+              "contents": [
+                {
+                  "type": "button",
+                  "style": "link",
+                  "height": "sm",
+                  "action": {
+                    "type": "uri",
+                    "label": "สมัครสมาชิก",
+                    "uri": "https://linecorp.com"
+                  },
+                  "color": "#FFFFFF"
+                },
+                {
+                  "type": "button",
+                  "style": "primary",
+                  "height": "sm",
+                  "action": {
+                    "type": "uri",
+                    "label": "Share",
+                    "uri": "https://linecorp.com"
+                  },
+                  "color": "#FF0000"
+                },
+                {
+                  "type": "spacer",
+                  "size": "sm"
+                }
+              ],
+              "flex": 0,
+              "backgroundColor": "#000000"
             }
-          ],
-          "flex": 0,
-          "backgroundColor": "#000000"
+          }
         }
-      }
       ])
     }
 
