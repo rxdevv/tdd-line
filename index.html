@@ -2,7 +2,8 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover">
+    <meta name="viewport"
+      content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover">
     <title>My LIFF app</title>
     <!-- <link rel="stylesheet" href="css/style.css" media="all"> -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -10,11 +11,41 @@
   <body>
     <div class="p-10 flex justify-center">
       <div class="max-w-sm rounded overflow-hidden shadow-lg p-10">
-        <img class="rounded-full" style="width: 100%" id="pictureUrl" alt="Mountain">
+        <img class="rounded-full" style="width: 100%" id="pictureUrl"
+          alt="Mountain">
         <div class="px-6 py-4">
-          <p class="text-gray-700 text-base"  hidden></p>
+          <p class="text-gray-700 text-base" hidden></p>
           <p class="font-bold text-xl mb-2" id="displayName"></p>
           <p class="text-gray-700 text-base" id="statusMessage"></p>
+          <ul id="tabs" class="inline-flex w-full px-1 pt-2 ">
+            <li class="px-4 py-2 -mb-px font-semibold text-gray-800 border-b-2 border-blue-400 rounded-t opacity-50">
+              <a id="default-tab" href="#first">All</a>
+            </li>
+            <li class="px-4 py-2 font-semibold text-gray-800 rounded-t opacity-50">
+              <a href="#second">Clothes</a>
+            </li>
+            <li class="px-4 py-2 font-semibold text-gray-800 rounded-t opacity-50">
+              <a href="#third">Electronics</a>
+            </li>
+            <li class="px-4 py-2 font-semibold text-gray-800 rounded-t opacity-50">
+              <a href="#fourth">Others</a>
+            </li>
+          </ul>
+          <!-- Tab Contents -->
+          <div id="tab-contents">
+            <div id="first" class="p-4">
+              First tab
+            </div>
+            <div id="second" class="hidden p-4">
+              Second tab
+            </div>
+            <div id="third" class="hidden p-4">
+              Third tab
+            </div>
+            <div id="fourth" class="hidden p-4">
+              Fourth tab
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -37,9 +68,9 @@
     <p id="isLoggedIn" hidden><b>isLoggedIn:</b> </p>
     <p id="universalLink1" hidden><b>Universal Link:</b> </p>
     <p id="universalLink2" hidden><b>Universal Link with Query params:</b> </p>
-    <p hidden><a href="liff/path/?param=9">Link to Path</a></p> 
+    <p hidden><a href="liff/path/?param=9">Link to Path</a></p>
 
-     <button id="btnMsg" onclick="sendMsg()" hidden>Send Message</button>
+    <button id="btnMsg" onclick="sendMsg()" hidden>Send Message</button>
     <button id="btnShare" onclick="shareMsg()" hidden>Share Target Picker</button>
     <button onclick="openWindow()" hidden>Open Window</button>
     <button id="btnScanCode" onclick="scanCode()" hidden>Scan Code</button>
@@ -48,8 +79,33 @@
 
     <script src="js/vconsole.min.js"></script>
     <script>
-    // var vConsole = new VConsole()
-    // console.log("Hello World!")
+      let tabsContainer = document.querySelector("#tabs");
+
+      let tabTogglers = tabsContainer.querySelectorAll("a");
+      console.log(tabTogglers);
+
+      tabTogglers.forEach(function(toggler) {
+      toggler.addEventListener("click", function(e) {
+      e.preventDefault();
+
+      let tabName = this.getAttribute("href");
+
+      let tabContents = document.querySelector("#tab-contents");
+
+      for (let i = 0; i < tabContents.children.length; i++) {
+
+        tabTogglers[i].parentElement.classList.remove("border-blue-400", "border-b",  "-mb-px", "opacity-100");  tabContents.children[i].classList.remove("hidden");
+        if ("#" + tabContents.children[i].id === tabName) {
+          continue;
+        }
+        tabContents.children[i].classList.add("hidden");
+
+      }
+      e.target.parentElement.classList.add("border-blue-400", "border-b-4", "-mb-px", "opacity-100");
+  });
+});
+
+document.getElementById("default-tab").click();
   </script>
     <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
     <script>
