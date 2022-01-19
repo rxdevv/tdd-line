@@ -10,13 +10,13 @@
   </head>
   <body>
     <div class="flex justify-center">
-      <div class="max-w-md rounded overflow-hidden shadow-lg p-5">
+      <div id="shwcase" style="display: none;" class="max-w-md rounded overflow-hidden shadow-lg p-5">
         <img class="rounded-full" style="width: 100%" id="pictureUrl" alt="Mountain">
         <div class="py-4 flex-wrap">
           <p class="text-gray-700 text-base" hidden></p>
           <p class="font-bold text-xl mb-2" id="displayName"></p>
           <p class="text-gray-700 text-base" id="statusMessage"></p>
-          <p class="text-gray-700 text-base">V. 1.0.5</p>
+          <p class="text-gray-700 text-base">V. 1.0.6</p>
           <ul id="tabs" class="inline-flex w-full pt-2 duration-300">
             <li class="px-4 py-2 -mb-px font-semibold text-gray-800 border-b-2 border-blue-400 rounded-t opacity-50">
               <a id="default-tab" href="#first">Console</a>
@@ -88,10 +88,12 @@
 
     <script src="js/vconsole.min.js"></script>
     <script>
+      setTimeout(function () {
+        document.getElementById('shwcase').style.display = "block"
+      },5000)
       let tabsContainer = document.querySelector("#tabs");
 
       let tabTogglers = tabsContainer.querySelectorAll("a");
-      console.log(tabTogglers);
 
       tabTogglers.forEach(function(toggler) {
       toggler.addEventListener("click", function(e) {

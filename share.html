@@ -7,10 +7,6 @@
         <title>SHARE</title>
     </head>
     <body>
-
-        <input type="text" id="url" readonly>
-        <input type="text" id="des" readonly>
-
         <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
         <script>
         const queryString = window.location.search
@@ -21,8 +17,6 @@
             await liff.init({ liffId: "1656810289-OJ1z25lK" })
             
             shareMsg(urlImage, description)
-            document.getElementById('url').value = urlImage
-            document.getElementById('des').value = description
             // if(liff.isLoggedIn()){
 
             // }else{
