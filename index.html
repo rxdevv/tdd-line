@@ -184,10 +184,7 @@ document.getElementById("default-tab").click();
               }
             }
           ])
-      }catch(error){
-        console.log(error)
-      }
-      if(res){
+          if(res){
         alert(`[${res.status}] Message sent`)
       }else{
         // ผู้ใช้งานกดปิดหน้า ShareTargetPicker หรือใช้แอป LINE เวอร์ชันต่ำกว่า 10.10.1
@@ -206,8 +203,13 @@ document.getElementById("default-tab").click();
           alert('ShareTargetPicker was canceled in LINE app')
         }
       }
-      document.getElementById('imageUrl').value = ''
-      document.getElementById('description').value = ''
+      
+      }catch(error){
+        console.log(error)
+      }finally{
+        document.getElementById('imageUrl').value = ''
+        document.getElementById('description').value = ''
+      }
     }
 
     function logOut() {
