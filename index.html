@@ -133,8 +133,8 @@ document.getElementById("default-tab").click();
       const des = document.getElementById('description').value
       var testEndcode = decodeURIComponent(`/share.html?urlimage=${urlImage}&des=${des}`)
       var testUri = `line://app/1656810289-OJ1z25lK/?liff.state=${testEndcode}`
-      console.log(testUri)
-      console.log(testEndcode)
+      // console.log(testUri)
+      console.log(decodeURIComponent(`/share.html?urlimage=${urlImage}&des=${des}`))
       try{
         const res =  await liff.shareTargetPicker([
           {
