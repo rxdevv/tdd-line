@@ -129,11 +129,11 @@ document.getElementById("default-tab").click();
     }
 
     async function shareMsg() {
-      const urlImage = document.getElementById('imageUrl').value
-      const des = document.getElementById('description').value
-      const endcode = decodeURIComponent(`/share.html?urlimage=${urlImage}&des=${des}`)
-      const Uri = `line://app/1656810289-OJ1z25lK/?liff.state=${endcode}`
-      console.log(endcode)
+      var urlImage = document.getElementById('imageUrl').value
+      var des = document.getElementById('description').value
+      var endCd = decodeURIComponent(`/share.html?urlimage=${urlImage}&des=${des}`)
+      var Uri = `line://app/1656810289-OJ1z25lK/?liff.state=${endCd}`
+      console.log(endCd)
       console.log(Uri)
       try{
         const res =  await liff.shareTargetPicker([
