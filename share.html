@@ -30,18 +30,18 @@
             // } 
         }
         main()
-        async function shareMsg(urlImage, description){
-            const Uri = `line://app/1656810289-OJ1z25lK/?liff.state=${decodeURIComponent(`/share.html?urlimage=${urlImage}&des=${description}`)}`
+        async function shareMsg(uri, des){
+            const Uri = `line://app/1656810289-OJ1z25lK/?liff.state=${decodeURIComponent(`/share.html?urlimage=${uri}&des=${des}`)}`
             try{
                 await liff.shareTargetPicker([
                 {
                     "type": "flex",
-                    "altText": description , // Description
+                    "altText": des , // Description
                     "contents": {
                         "type": "bubble",
                         "hero": {
                         "type": "image",
-                        "url": urlImage ,
+                        "url": uri ,
                         "size": "full",
                         "aspectMode": "cover",
                         "action": {
