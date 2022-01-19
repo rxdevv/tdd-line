@@ -129,60 +129,64 @@ document.getElementById("default-tab").click();
     }
 
     async function shareMsg() {
-      const res =  await liff.shareTargetPicker([
-      {
-          "type": "flex",
-          "altText": document.getElementById('description').value , // Description
-          "contents": {
-            "type": "bubble",
-            "hero": {
-              "type": "image",
-              "url": document.getElementById('imageUrl').value ,
-              "size": "full",
-              "aspectMode": "cover",
-              "action": {
-                "type": "uri",
-                "uri": "https://tangdydee.com"
-              }
-            },
-            "footer": {
-              "type": "box",
-              "layout": "horizontal",
-              "spacing": "sm",
-              "contents": [
-                {
-                  "type": "button",
-                  "style": "link",
-                  "height": "sm",
+      try{
+        const res =  await liff.shareTargetPicker([
+          {
+              "type": "flex",
+              "altText": document.getElementById('description').value , // Description
+              "contents": {
+                "type": "bubble",
+                "hero": {
+                  "type": "image",
+                  "url": document.getElementById('imageUrl').value ,
+                  "size": "full",
+                  "aspectMode": "cover",
                   "action": {
                     "type": "uri",
-                    "label": "สมัครสมาชิก",
                     "uri": "https://tangdydee.com"
-                  },
-                  "color": "#FFFFFF"
+                  }
                 },
-                {
-                  "type": "button",
-                  "style": "primary",
-                  "height": "sm",
-                  "action": {
-                    "type": "uri",
-                    "label": "แชร์เลย",
-                    "uri": `https://rxdevv.github.io/tdd-line/share.html?urlimage=${document.getElementById('imageUrl').value}&des=${document.getElementById('description').value}`
-                  },
-                  "color": "#FF0000"
-                },
-                {
-                  "type": "spacer",
-                  "size": "sm"
+                "footer": {
+                  "type": "box",
+                  "layout": "horizontal",
+                  "spacing": "sm",
+                  "contents": [
+                    {
+                      "type": "button",
+                      "style": "link",
+                      "height": "sm",
+                      "action": {
+                        "type": "uri",
+                        "label": "สมัครสมาชิก",
+                        "uri": "https://tangdydee.com"
+                      },
+                      "color": "#FFFFFF"
+                    },
+                    {
+                      "type": "button",
+                      "style": "primary",
+                      "height": "sm",
+                      "action": {
+                        "type": "uri",
+                        "label": "แชร์เลย",
+                        "uri": `https://rxdevv.github.io/tdd-line/share.html?urlimage=${document.getElementById('imageUrl').value}&des=${document.getElementById('description').value}`
+                      },
+                      "color": "#FF0000"
+                    },
+                    {
+                      "type": "spacer",
+                      "size": "sm"
+                    }
+                  ],
+                  "flex": 0,
+                  "backgroundColor": "#000000"
                 }
-              ],
-              "flex": 0,
-              "backgroundColor": "#000000"
+              }
             }
-          }
-        }
-      ])
+          ])
+      }catch(error){
+        console.log(error)
+      }
       if(res){
         alert(`[${res.status}] Message sent`)
       }else{
