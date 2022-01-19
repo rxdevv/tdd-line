@@ -8,6 +8,9 @@
     </head>
     <body>
 
+        <input type="text" id="url" readonly>
+        <input type="text" id="des" readonly>
+
         <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
         <script>
         const queryString = window.location.search
@@ -18,7 +21,8 @@
             await liff.init({ liffId: "1656810289-OJ1z25lK" })
             
             shareMsg(urlImage, description)
-            liff.closeWindow()
+            document.getElementById('url').value = urlImage
+            document.getElementById('des').value = description
             // if(liff.isLoggedIn()){
 
             // }else{
@@ -67,7 +71,7 @@
                             "action": {
                                 "type": "uri",
                                 "label": "Share",
-                                "uri": urlImage !== null & description !== null ? `https://liff.line.me/1656810289-OJ1z25lK/share.html?urlimage=${urlImage}&des=${description}` : null
+                                "uri": urlImage !== null & description !== null ? `line://app/1656810289-OJ1z25lK/share.html?urlimage=${urlImage}&des=${description}` : null
                             },
                             "color": "#FF0000"
                             },
