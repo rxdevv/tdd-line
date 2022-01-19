@@ -131,10 +131,10 @@ document.getElementById("default-tab").click();
     async function shareMsg() {
       const urlImage = document.getElementById('imageUrl').value
       const des = document.getElementById('description').value
-      var testEndcode = decodeURIComponent(`/share.html?urlimage=${urlImage}&des=${des}`)
-      var testUri = `line://app/1656810289-OJ1z25lK/?liff.state=${testEndcode}`
-      // console.log(testUri)
-      console.log(decodeURIComponent(`/share.html?urlimage=${urlImage}&des=${des}`))
+      const testEndcode = encodeURIComponent(`/share.html?urlimage=${urlImage}&des=${des}`)
+      const testUri = `line://app/1656810289-OJ1z25lK/?liff.state=${testEndcode}`
+      console.log(testUri)
+      console.log(testEndcode)
       try{
         const res =  await liff.shareTargetPicker([
           {
