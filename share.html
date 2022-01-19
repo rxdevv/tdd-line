@@ -31,7 +31,7 @@
         }
         main()
         async function shareMsg(uri, des){
-            const Uri = `line://app/1656810289-OJ1z25lK/?liff.state=${decodeURIComponent(`/share.html?urlimage=${uri}&des=${des}`)}`
+            const Uri = `line://app/1656810289-OJ1z25lK/?liff.state=${encodeURIComponent(`/share.html?urlimage=${uri}&des=${des}`)}`
             try{
                 await liff.shareTargetPicker([
                 {
