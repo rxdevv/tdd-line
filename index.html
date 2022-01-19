@@ -123,22 +123,25 @@ document.getElementById("default-tab").click();
     }
 
     function share() {
-      const urlimage = document.getElementById('imageUrl').value
+      const urlImage = document.getElementById('imageUrl').value
       const description = document.getElementById('description').value
       window.location.href = `./share.html?urlimage=${urlimage}&des=${description}`
     }
 
     async function shareMsg() {
+      const urlImage = document.getElementById('imageUrl').value
+      const description = document.getElementById('imageUrl').value
+      const Uri = `line://app/1656810289-OJ1z25lK/?liff.state=${decodeURIComponent(`/share.html?urlimage=${urlImage}&des=${description}`)}`
       try{
         const res =  await liff.shareTargetPicker([
           {
               "type": "flex",
-              "altText": document.getElementById('description').value , // Description
+              "altText": urlImage , // Description
               "contents": {
                 "type": "bubble",
                 "hero": {
                   "type": "image",
-                  "url": document.getElementById('imageUrl').value ,
+                  "url": description ,
                   "size": "full",
                   "aspectMode": "cover",
                   "action": {
@@ -169,7 +172,7 @@ document.getElementById("default-tab").click();
                       "action": {
                         "type": "uri",
                         "label": "แชร์เลย",
-                        "uri": `line://app/1656810289-OJ1z25lK/share.html?urlimage=${document.getElementById('imageUrl').value}&des=${document.getElementById('description').value}`
+                        "uri": Uri
                       },
                       "color": "#FF0000"
                     },
