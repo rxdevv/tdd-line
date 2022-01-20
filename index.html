@@ -16,7 +16,7 @@
           <p class="text-gray-700 text-base" hidden></p>
           <p class="font-bold text-xl mb-2" id="displayName"></p>
           <p class="text-gray-700 text-base" id="statusMessage"></p>
-          <p class="text-gray-700 text-base">V. 1.1.0</p>
+          <p class="text-gray-700 text-base">V. 1.2.1</p>
           <ul id="tabs" class="inline-flex w-full pt-2 duration-300">
             <li class="px-4 py-2 -mb-px font-semibold text-gray-800 border-b-2 border-blue-400 rounded-t opacity-50">
               <a id="default-tab" href="#first">Console</a>
@@ -134,7 +134,7 @@ document.getElementById("default-tab").click();
       const urlImage = document.getElementById('imageUrl').value
       const des = document.getElementById('description').value
       const buttonUrl = document.getElementById('buttonUrl').value
-      const testEndcode = encodeURIComponent(`/share.html?button=${buttonUrl}&urlimage=${urlImage}&des=${des}`)
+      const testEndcode = encodeURIComponent(`/share.html?buttonUrl=${buttonUrl}&urlimage=${urlImage}&des=${des}`)
       const testUri = `line://app/1656810289-OJ1z25lK/?liff.state=${testEndcode}`
       try{
         const res =  await liff.shareTargetPicker([
