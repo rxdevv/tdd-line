@@ -11,12 +11,13 @@
         <script>
         const queryString = window.location.search
         const urlParams = new URLSearchParams(queryString)
+        const buttonUrl = urlParams.get('buttonUrl')
         const urlImage = urlParams.get('urlimage')
         const description = urlParams.get('des')
         async function main() {
             await liff.init({ liffId: "1656810289-OJ1z25lK" })
             
-            shareMsg(urlImage, description)
+            shareMsg(buttonUrl ,urlImage, description)
             // if(liff.isLoggedIn()){
 
             // }else{
@@ -24,8 +25,8 @@
             // } 
         }
         main()
-        async function shareMsg(uri, des){
-            const Uri = `line://app/1656810289-OJ1z25lK/?liff.state=${encodeURIComponent(`/share.html?urlimage=${uri}&des=${des}`)}`
+        async function shareMsg(buttonUrl, uri, des){
+            const Uri = `line://app/1656810289-OJ1z25lK/?liff.state=${encodeURIComponent(`/share.html?buttonUrl=${buttonUrl}urlimage=${uri}&des=${des}`)}`
             try{
                 await liff.shareTargetPicker([
                 {
@@ -40,7 +41,7 @@
                         "aspectMode": "cover",
                         "action": {
                             "type": "uri",
-                            "uri": "http://tangdydee.com"
+                            "uri": buttonUrl
                         }
                         },
                         "footer": {
@@ -55,7 +56,7 @@
                             "action": {
                                 "type": "uri",
                                 "label": "สมัครสมาชิก",
-                                "uri": "https://tangdydee.com"
+                                "uri": buttonUrl
                             },
                             "color": "#FFFFFF"
                             },
