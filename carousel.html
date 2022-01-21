@@ -21,6 +21,10 @@
 
         const caption = urlParams.get('caption')
 
+        const label_1 = urlParams.get('label1')
+        const label_2 = urlParams.get('label2')
+        const label_3 = urlParams.get('label3')
+
         const link_1 = urlParams.get('link1')
         const link_2 = urlParams.get('link2')
         const link_3 = urlParams.get('link3')
@@ -49,8 +53,8 @@
             
         }
         main()
-        async function carousel(caption, link_1, link_2, link_3, image_1, image_2, image_3) {
-            const Endcode = encodeURIComponent(`/carousel.html?caption=${caption}&link1=${link_1}&image1=${image_1}&link2=${link_2}&image2=${image_2}&link3=${link_3}&image3=${image_3}`)
+        async function carousel(caption, label_1, label_2, label_3, link_1, link_2, link_3, image_1, image_2, image_3) {
+            const Endcode = encodeURIComponent(`/carousel.html?caption=${caption}&label1=${label_1}&link1=${link_1}&image1=${image_1}&label2=${label_2}&link2=${link_2}&image2=${image_2}&label3=${label_3}&link3=${link_3}&image3=${image_3}`)
             const Uri = `https://liff.line.me/1656810289-OJ1z25lK/?liff.state=${Endcode}`
             try{   
                 const res = await liff.shareTargetPicker([
@@ -78,7 +82,7 @@
                                 "type": "button",
                                 "action": {
                                     "type": "uri",
-                                    "label": "สมัครสมาชิก",
+                                    "label": label_1,
                                     "uri": link_1,
                                 },
                                 "color": "#FFFFFF"
@@ -114,7 +118,7 @@
                                 "type": "button",
                                 "action": {
                                     "type": "uri",
-                                    "label": "เข้ารับโปรโมชั่น",
+                                    "label": label_2,
                                     "uri": link_2
                                 },
                                 "color": "#FFFFFF"
@@ -149,7 +153,7 @@
                                 "type": "button",
                                 "action": {
                                     "type": "uri",
-                                    "label": "เข้ารับโปรโมชั่น",
+                                    "label": label_3,
                                     "uri": link_3
                                 },
                                 "color": "#FFFFFF"
