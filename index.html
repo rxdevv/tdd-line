@@ -241,14 +241,8 @@ document.getElementById("default-tab").click();
     async function getUserProfile() {
       const profile = await liff.getProfile()
       document.getElementById("pictureUrl").src = profile.pictureUrl
-      document.getElementById("userId").value = profile.userId
       document.getElementById("statusMessage").append(profile.statusMessage)
       document.getElementById("displayName").append(profile.displayName)
-      if(liff.getDecodedIDToken().email){
-        document.getElementById("decodedIDToken").value = liff.getDecodedIDToken().email
-      }else{
-        document.getElementById("divIdToken").style.display = "none"
-      }
     }
 
     function getEnvironment() {
