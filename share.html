@@ -17,12 +17,12 @@
         async function main() {
             await liff.init({ liffId: "1656810289-OJ1z25lK" })
             
-            shareMsg(buttonUrl ,urlImage, description)
-            // if(liff.isLoggedIn()){
-
-            // }else{
-            //     liff.login()
-            // } 
+            
+            if(liff.isLoggedIn()){
+                shareMsg(buttonUrl ,urlImage, description)
+            }else{
+                liff.login()
+            } 
         }
         main()
         async function shareMsg(buttonUrl, uri, des){

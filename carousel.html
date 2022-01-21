@@ -41,12 +41,12 @@
 
         async function main() {
             await liff.init({ liffId: "1656810289-OJ1z25lK" })
-            // if(liff.isLoggedIn()){
-
-            // }else{
-            //     liff.login()
-            // } 
-            carousel(caption, link_1, link_2, link_3, image_1, image_2, image_3)
+            if(liff.isLoggedIn()){
+                carousel(caption, link_1, link_2, link_3, image_1, image_2, image_3)
+            }else{
+                liff.login()
+            } 
+            
         }
         main()
         async function carousel(caption, link_1, link_2, link_3, image_1, image_2, image_3) {
