@@ -7,11 +7,18 @@
     <title>SHARE??</title>
 </head>
 <body>
+    <input type="text" id="caption">
+    <input type="text" id="link_1">
+    <input type="text" id="link_2">
+    <input type="text" id="link_3">
+    <input type="text" id="image_1">
+    <input type="text" id="image_2">
+    <input type="text" id="image_3">
     <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
     <script>
         const queryString = window.location.search
         const urlParams = new URLSearchParams(queryString)
-        
+
         const caption = urlParams.get('caption')
 
         const link_1 = urlParams.get('link1')
@@ -21,6 +28,14 @@
         const image_1 = urlParams.get('image1')
         const image_2 = urlParams.get('image2')
         const image_3 = urlParams.get('image3')
+
+        document.getElementById('caption').value = caption
+        document.getElementById('link_1').value = link_1
+        document.getElementById('link_2').value = link_2
+        document.getElementById('link_3').value = link_3
+        document.getElementById('image_1').value = image_1
+        document.getElementById('image_2').value = image_2
+        document.getElementById('image_3').value = image_3
 
         
 
@@ -33,12 +48,13 @@
             // } 
             carousel(caption, link_1, link_2, link_3, image_1, image_2, image_3)
             
+            
         }
 
         async function carousel(caption, link_1, link_2, link_3, image_1, image_2, image_3) {
             const Endcode = encodeURIComponent(`/carousel.html?caption=${caption}&link1=${link_1}&image1=${image_1}&link2=${link_2}&image2=${image_2}&link3=${link_3}&image3=${image_3}`)
             const Uri = `line://app/1656810289-OJ1z25lK/?liff.state=${Endcode}`
-            try{
+            try{   
                 const res = await liff.shareTargetPicker([
                 {
                     "type": "flex",
