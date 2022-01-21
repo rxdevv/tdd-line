@@ -10,7 +10,7 @@
   </head>
   <body>
     <div class="flex justify-center">
-      <div id="shwcase" style="display: none;" class="max-w-md rounded overflow-hidden shadow-lg p-5 duration-300">
+      <div id="shwcase" style="display: none;" class="w-2/5 mt-5 rounded overflow-hidden shadow-lg p-5 duration-300">
         <img class="rounded-full" style="width: 100%" id="pictureUrl" alt="Mountain">
         <div class="py-4 flex-wrap">
           <p class="text-gray-700 text-base" hidden></p>
@@ -23,9 +23,6 @@
             </li>
             <li class="px-4 py-2 font-semibold text-gray-800 rounded-t opacity-50">
               <a href="#second">Details</a>
-            </li>
-            <li class="px-4 py-2 font-semibold text-gray-800 rounded-t opacity-50">
-              <a href="#third">Environment</a>
             </li>
           </ul>
           <!-- Tab Contents -->
@@ -41,36 +38,7 @@
               </div>
             </div>
             <div id="second" class="hidden p-4">
-              <div id="divToken">
-                <p><b>AccessToken:</b> </p><input type="text" id="accessToken" readonly class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700">
-              </div>
-              <div id="divUserId">
-                <p><b>userId:</b> </p><input type="text" id="userId" readonly class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700">
-              </div>
-              <div id="divIdToken">
-                <p><b>email:</b> </p><input type="text" id="decodedIDToken" readonly class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700">
-              </div>
-              <div id="divType">
-                <p><b>type:</b> </p><input type="text" id="type" readonly class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700">
-              </div>
-              <div id="divViewType">
-                <p><b>viewType:</b> </p><input type="text" id="viewType" readonly class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700">
-              </div>
-              <div id="divUtouId">
-                <p><b>utouId:</b> </p><input type="text" id="utouId" readonly class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700">
-              </div>
-              <div id="divRoomId">
-                <p><b>roomId:</b> </p><input type="text" id="roomId" readonly class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700">
-              </div>
-              <div id="divGroupId">
-                <p><b>groupId:</b> </p><input type="text" id="groupId" readonly class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700">
-              </div>
-            </div>
-            <div id="third" class="hidden p-4">
-              <p><b>OS:</b> </p><input type="text" id="os" readonly class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700">
-              <p><b>Language:</b> </p><input type="text" id="language" readonly class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700">
-              <p><b>Version:</b> </p><input type="text" id="version" readonly class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700">
-              <p><b>isInClient:</b> </p><input type="text" id="isInClient" readonly class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700">
+              
             </div>
           </div>
         </div>
@@ -336,15 +304,15 @@ document.getElementById("default-tab").click();
         // getUserProfile()
         // getContext()
         // getFriendship()
-      if(liff.isLoggedIn()){
-        getEnvironment()
-        getUserProfile()
-        getContext()
-        getFriendship()
-        // createUniversalLink()
-      }else{
-        liff.login()
-      }
+      // if(liff.isLoggedIn()){
+      //   getEnvironment()
+      //   getUserProfile()
+      //   getContext()
+      //   getFriendship()
+      //   // createUniversalLink()
+      // }else{
+      //   liff.login()
+      // }
     }
     main()
   </script>
