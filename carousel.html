@@ -11,6 +11,8 @@
     <script>
         const queryString = window.location.search
         const urlParams = new URLSearchParams(queryString)
+        
+        const caption = urlParams.get('caption')
 
         const link_1 = urlParams.get('link1')
         const link_2 = urlParams.get('link2')
@@ -20,7 +22,7 @@
         const image_2 = urlParams.get('image2')
         const image_3 = urlParams.get('image3')
 
-        const caption = urlParams.get('caption')
+        
 
         async function main() {
             await liff.init({ liffId: "1656810289-OJ1z25lK" })
@@ -29,11 +31,11 @@
             // }else{
             //     liff.login()
             // } 
-            carousel()
+            carousel(caption, link_1, link_2, link_3, image_1, image_2, image_3)
             
         }
 
-        async function carousel() {
+        async function carousel(caption, link_1, link_2, link_3, image_1, image_2, image_3) {
             const Endcode = encodeURIComponent(`/carousel.html?caption=${caption}&link1=${link_1}&image1=${image_1}&link2=${link_2}&image2=${image_2}&link3=${link_3}&image3=${image_3}`)
             const Uri = `line://app/1656810289-OJ1z25lK/?liff.state=${Endcode}`
             try{
