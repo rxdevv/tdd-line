@@ -34,7 +34,7 @@
         }
 
         async function carousel() {
-            const Endcode = encodeURIComponent(`/corousel.html?caption=${caption}&link1=${link_1}&image1=${image_1}&link2=${link_2}&image2=${image_2}&link3=${link_3}&image3=${image_3}`)
+            const Endcode = encodeURIComponent(`/carousel.html?caption=${caption}&link1=${link_1}&image1=${image_1}&link2=${link_2}&image2=${image_2}&link3=${link_3}&image3=${image_3}`)
             const Uri = `line://app/1656810289-OJ1z25lK/?liff.state=${Endcode}`
             try{
                 const res = await liff.shareTargetPicker([
