@@ -11,7 +11,7 @@
   <body>
     <div class="flex justify-center">
       <div id="shwcase" style="display: none;" class="w-2/5 mt-5 rounded overflow-hidden shadow-lg p-5 duration-300">
-        <img class="rounded-full" style="width: 100%" id="pictureUrl" alt="Mountain">
+        <img class="rounded-full" style="width: 50%" id="pictureUrl">
         <div class="py-4 flex-wrap">
           <p class="text-gray-700 text-base" hidden></p>
           <p class="font-bold text-xl mb-2" id="displayName"></p>
@@ -19,10 +19,10 @@
           <p class="text-gray-700 text-base">V. 1.2.6</p>
           <ul id="tabs" class="inline-flex w-full pt-2 duration-300">
             <li class="px-4 py-2 -mb-px font-semibold text-gray-800 border-b-2 border-blue-400 rounded-t opacity-50">
-              <a id="default-tab" href="#first">Console</a>
+              <a id="default-tab" href="#first">Card</a>
             </li>
             <li class="px-4 py-2 font-semibold text-gray-800 rounded-t opacity-50">
-              <a href="#second">Details</a>
+              <a href="#second">Carousel</a>
             </li>
           </ul>
           <!-- Tab Contents -->
@@ -38,7 +38,7 @@
               </div>
             </div>
             <div id="second" class="hidden p-4">
-              
+              <button id="btnCarousel" onclick="carousel()" class="bg-green-500 text-white rounded hover:bg-green-600 duration-300 shadow-md p-3">Carousel</button>
             </div>
           </div>
         </div>
@@ -89,14 +89,129 @@ document.getElementById("default-tab").click();
   </script>
     <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
     <script>
-    function createUniversalLink() {
 
-    }
+    async function carousel() {
 
-    function share() {
-      const urlImage = document.getElementById('imageUrl').value
-      const description = document.getElementById('description').value
-      window.location.href = `./share.html?urlimage=${urlimage}&des=${description}`
+      try{
+        const res = await liff.shareTargetPicker([
+          {
+              "type": "flex",
+              "altText": "description",
+              "contents": 
+              {
+                "type": "carousel",
+                "contents": [
+                  {
+                    "type": "bubble",
+                    "hero": {
+                      "type": "image",
+                      "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
+                      "size": "full",
+                      "aspectMode": "cover"
+                    },
+                    "footer": {
+                      "type": "box",
+                      "layout": "horizontal",
+                      "contents": [
+                        {
+                          "type": "button",
+                          "action": {
+                            "type": "uri",
+                            "label": "สมัครสมาชิก",
+                            "uri": "http://linecorp.com/"
+                          },
+                          "color": "#FFFFFF"
+                        },
+                        {
+                          "type": "button",
+                          "action": {
+                            "type": "uri",
+                            "label": "แชร์เลย",
+                            "uri": "http://linecorp.com/"
+                          },
+                          "style": "primary",
+                          "color": "#FF0000"
+                        }
+                      ],
+                      "backgroundColor": "#000000"
+                    }
+                  },
+                  {
+                    "type": "bubble",
+                    "hero": {
+                      "type": "image",
+                      "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
+                      "size": "full",
+                      "aspectMode": "cover"
+                    },
+                    "footer": {
+                      "type": "box",
+                      "layout": "horizontal",
+                      "contents": [
+                        {
+                          "type": "button",
+                          "action": {
+                            "type": "uri",
+                            "label": "เข้ารับโปรโมชั่น",
+                            "uri": "http://linecorp.com/"
+                          },
+                          "color": "#FFFFFF"
+                        },
+                        {
+                          "type": "button",
+                          "action": {
+                            "type": "uri",
+                            "label": "แชร์เลย",
+                            "uri": "http://linecorp.com/"
+                          },
+                          "style": "primary"
+                        }
+                      ],
+                      "backgroundColor": "#000000"
+                    }
+                  },
+                  {
+                    "type": "bubble",
+                    "hero": {
+                      "type": "image",
+                      "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
+                      "size": "full",
+                      "aspectMode": "cover"
+                    },
+                    "footer": {
+                      "type": "box",
+                      "layout": "horizontal",
+                      "contents": [
+                        {
+                          "type": "button",
+                          "action": {
+                            "type": "uri",
+                            "label": "เข้ารับโปรโมชั่น",
+                            "uri": "http://linecorp.com/"
+                          },
+                          "color": "#FFFFFF"
+                        },
+                        {
+                          "type": "button",
+                          "action": {
+                            "type": "uri",
+                            "label": "แชร์เลย",
+                            "uri": "http://linecorp.com/"
+                          },
+                          "style": "primary",
+                          "color": "#0E86D4"
+                        }
+                      ],
+                      "backgroundColor": "#000000"
+                    }
+                  }
+                ]
+              }
+          }
+        ])
+      }catch(err){
+
+      }
     }
 
     async function shareMsg() {
@@ -263,9 +378,7 @@ document.getElementById("default-tab").click();
       if(liff.isLoggedIn()){
         getEnvironment()
         getUserProfile()
-        getContext()
         getFriendship()
-        // createUniversalLink()
       }else{
         liff.login()
       }
