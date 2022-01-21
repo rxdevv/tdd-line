@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SHARE??</title>
+    <title>SHARE</title>
 </head>
 <body>
-    <input type="text" id="caption">
-    <input type="text" id="link_1">
-    <input type="text" id="link_2">
-    <input type="text" id="link_3">
-    <input type="text" id="image_1">
-    <input type="text" id="image_2">
-    <input type="text" id="image_3">
+    <input hidden type="text" id="caption">
+    <input hidden type="text" id="link_1">
+    <input hidden type="text" id="link_2">
+    <input hidden type="text" id="link_3">
+    <input hidden type="text" id="image_1">
+    <input hidden type="text" id="image_2">
+    <input hidden type="text" id="image_3">
     <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
     <script>
         const queryString = window.location.search
@@ -47,8 +47,6 @@
             //     liff.login()
             // } 
             carousel(caption, link_1, link_2, link_3, image_1, image_2, image_3)
-            
-            
         }
         main()
         async function carousel(caption, link_1, link_2, link_3, image_1, image_2, image_3) {
@@ -176,6 +174,8 @@
                 ])
             }catch(err){ 
                 console.error(err)
+            }finally{
+                liff.closeWindow()
             }
         }
     </script>
