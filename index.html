@@ -304,15 +304,15 @@ document.getElementById("default-tab").click();
         // getUserProfile()
         // getContext()
         // getFriendship()
-      // if(liff.isLoggedIn()){
-      //   getEnvironment()
-      //   getUserProfile()
-      //   getContext()
-      //   getFriendship()
-      //   // createUniversalLink()
-      // }else{
-      //   liff.login()
-      // }
+      if(liff.isLoggedIn()){
+        getEnvironment()
+        getUserProfile()
+        getContext()
+        getFriendship()
+        // createUniversalLink()
+      }else{
+        liff.login()
+      }
     }
     main()
   </script>
