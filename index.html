@@ -75,7 +75,7 @@
     <script>
       setTimeout(function () {
         document.getElementById('shwcase').style.display = "block"
-      },5000)
+      },10000)
       let tabsContainer = document.querySelector("#tabs");
 
       let tabTogglers = tabsContainer.querySelectorAll("a");
@@ -408,13 +408,13 @@ document.getElementById("default-tab").click();
         // getUserProfile()
         // getContext()
         // getFriendship()
-      // if(liff.isLoggedIn()){
-      //   getEnvironment()
-      //   getUserProfile()
-      //   getFriendship()
-      // }else{
-      //   liff.login()
-      // }
+      if(liff.isLoggedIn()){
+        getEnvironment()
+        getUserProfile()
+        getFriendship()
+      }else{
+        liff.login()
+      }
     }
     main()
   </script>
