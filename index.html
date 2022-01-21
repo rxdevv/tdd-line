@@ -75,7 +75,7 @@
     <script>
       setTimeout(function () {
         document.getElementById('shwcase').style.display = "block"
-      },10000)
+      },5000)
       let tabsContainer = document.querySelector("#tabs");
 
       let tabTogglers = tabsContainer.querySelectorAll("a");
@@ -119,7 +119,7 @@ document.getElementById("default-tab").click();
       const link_3 = document.getElementById('carousel-button-3').value
       const image_3 = document.getElementById('carousel-image-3').value
 
-      const Endcode = encodeURIComponent(`/corousel.html?caption=${caption}&link1=${link_1}&image1=${image_1}&link2=${link_2}&image2=${image_2}&link3=${link_3}&image3=${image_3}`)
+      const Endcode = encodeURIComponent(`/carousel.html?caption=${caption}&link1=${link_1}&image1=${image_1}&link2=${link_2}&image2=${image_2}&link3=${link_3}&image3=${image_3}`)
       const Uri = `line://app/1656810289-OJ1z25lK/?liff.state=${Endcode}`
 
       try{
@@ -242,6 +242,25 @@ document.getElementById("default-tab").click();
               }
           }
         ])
+        if(res){
+        alert(`[${res.status}] Message sent`)
+        }else{
+          // ผู้ใช้งานกดปิดหน้า ShareTargetPicker หรือใช้แอป LINE เวอร์ชันต่ำกว่า 10.10.1
+          
+          // ใช้ liff.getLineVersion() เพื่อดึงเลขเวอร์ชันจากแอป LINE ของผู้ใช้
+          const [majorVer, minorVer, patchVer] = (liff.getLineVersion() || "").split('.');
+
+          // alert ในกรณที่ใช้งาน LIFF ใน external browser ค่า minorVer จะเป็น undefined
+          if (minorVer === undefined) {
+            alert('ShareTargetPicker was canceled in external browser')
+            return
+          }
+
+          // alert ในกรณีที่ผู้ใช้งานใช้แอป LINE v10.10.1 หรือเวอร์ชันใหม่กว่า
+          if (parseInt(majorVer) >= 10 && parseInt(minorVer) >= 10 && parseInt(patchVer) > 0) {
+            alert('ShareTargetPicker was canceled in LINE app')
+          }
+        }
       }catch(err){
 
       }
