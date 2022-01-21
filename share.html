@@ -11,37 +11,36 @@
         <script>
         const queryString = window.location.search
         const urlParams = new URLSearchParams(queryString)
-        const buttonUrl = urlParams.get('buttonUrl')
-        const urlImage = urlParams.get('urlimage')
-        const description = urlParams.get('des')
+        const label = urlParams.get('label')
+        const button = urlParams.get('button')
+        const image = urlParams.get('image')
+        const caption = urlParams.get('caption')
         async function main() {
             await liff.init({ liffId: "1656810289-OJ1z25lK" })
-            
-            
             if(liff.isLoggedIn()){
-                shareMsg(buttonUrl ,urlImage, description)
+                shareMsg(label ,button ,image, caption)
             }else{
                 liff.login()
             } 
         }
         main()
-        async function shareMsg(buttonUrl, uri, des){
-            const Uri = `https://liff.line.me/1656810289-OJ1z25lK/?liff.state=${encodeURIComponent(`/share.html?buttonUrl=${buttonUrl}urlimage=${uri}&des=${des}`)}`
+        async function shareMsg(label, button, image, caption){
+            const Uri = `https://liff.line.me/1656810289-OJ1z25lK/?liff.state=${encodeURIComponent(`/share.html?button=${button}&image=${image}&caption=${caption}&label=${label}`)}`
             try{
                 await liff.shareTargetPicker([
                 {
                     "type": "flex",
-                    "altText": des , // Description
+                    "altText": caption , // Description
                     "contents": {
                         "type": "bubble",
                         "hero": {
                         "type": "image",
-                        "url": uri ,
+                        "url": button ,
                         "size": "full",
                         "aspectMode": "cover",
                         "action": {
                             "type": "uri",
-                            "uri": buttonUrl
+                            "uri": button
                         }
                         },
                         "footer": {
@@ -55,8 +54,8 @@
                             "height": "sm",
                             "action": {
                                 "type": "uri",
-                                "label": "สมัครสมาชิก",
-                                "uri": buttonUrl
+                                "label": label,
+                                "uri": button
                             },
                             "color": "#FFFFFF"
                             },

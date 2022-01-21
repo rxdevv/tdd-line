@@ -280,7 +280,7 @@ document.getElementById("default-tab").click();
       const cardImage = document.getElementById('card-image').value
       const caption = document.getElementById('card-caption').value
       const cardButton = document.getElementById('card-button').value
-      const Endcode = encodeURIComponent(`/share.html?buttonUrl=${cardButton}&urlimage=${cardImage}&des=${caption}`)
+      const Endcode = encodeURIComponent(`/share.html?button=${cardButton}&image=${cardImage}&caption=${caption}&label${cardLabel}`)
       const Uri = `https://liff.line.me/1656810289-OJ1z25lK/?liff.state=${Endcode}`
       try{
         const res =  await liff.shareTargetPicker([
