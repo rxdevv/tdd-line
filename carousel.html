@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHARE</title>
+</head>
+<body>
+    <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+    <script>
+        const queryString = window.location.search
+        const urlParams = new URLSearchParams(queryString)
+
+        const link_1 = urlParams.get('link1')
+        const link_2 = urlParams.get('link2')
+        const link_3 = urlParams.get('link3')
+
+        const image_1 = urlParams.get('image1')
+        const image_2 = urlParams.get('image2')
+        const image_3 = urlParams.get('image3')
+
+        const caption = urlParams.get('caption')
+
+        async function main() {
+            await liff.init({ liffId: "1656810289-OJ1z25lK" })
+            // if(liff.isLoggedIn()){
+
+            // }else{
+            //     liff.login()
+            // } 
+            carousel()
+            
+        }
+
+        async function carousel() {
+            const Endcode = encodeURIComponent(`/corousel.html?caption=${caption}&link1=${link_1}&image1=${image_1}&link2=${link_2}&image2=${image_2}&link3=${link_3}&image3=${image_3}`)
+            const Uri = `line://app/1656810289-OJ1z25lK/?liff.state=${Endcode}`
+            try{
+                const res = await liff.shareTargetPicker([
+                {
+                    "type": "flex",
+                    "altText": caption,
+                    "contents": 
+                    {
+                        "type": "carousel",
+                        "contents": [
+                        {
+                            "type": "bubble",
+                            "hero": {
+                            "type": "image",
+                            "url": image_1,
+                            "size": "full",
+                            "aspectMode": "cover",
+                            "backgroundColor": "#000000"
+                            },
+                            "footer": {
+                            "type": "box",
+                            "layout": "horizontal",
+                            "contents": [
+                                {
+                                "type": "button",
+                                "action": {
+                                    "type": "uri",
+                                    "label": "สมัครสมาชิก",
+                                    "uri": link_1,
+                                },
+                                "color": "#FFFFFF"
+                                },
+                                {
+                                "type": "button",
+                                "action": {
+                                    "type": "uri",
+                                    "label": "แชร์เลย",
+                                    "uri": Uri
+                                },
+                                "style": "primary",
+                                "color": "#FF0000"
+                                }
+                            ],
+                            "backgroundColor": "#000000"
+                            }
+                        },
+                        {
+                            "type": "bubble",
+                            "hero": {
+                            "type": "image",
+                            "url": image_2,
+                            "size": "full",
+                            "aspectMode": "cover",
+                            "backgroundColor": "#000000"
+                            },
+                            "footer": {
+                            "type": "box",
+                            "layout": "horizontal",
+                            "contents": [
+                                {
+                                "type": "button",
+                                "action": {
+                                    "type": "uri",
+                                    "label": "เข้ารับโปรโมชั่น",
+                                    "uri": link_2
+                                },
+                                "color": "#FFFFFF"
+                                },
+                                {
+                                "type": "button",
+                                "action": {
+                                    "type": "uri",
+                                    "label": "แชร์เลย",
+                                    "uri": Uri
+                                },
+                                "style": "primary"
+                                }
+                            ],
+                            "backgroundColor": "#000000"
+                            }
+                        },
+                        {
+                            "type": "bubble",
+                            "hero": {
+                            "type": "image",
+                            "url": image_3,
+                            "size": "full",
+                            "aspectMode": "cover",
+                            "backgroundColor": "#000000"
+                            },
+                            "footer": {
+                            "type": "box",
+                            "layout": "horizontal",
+                            "contents": [
+                                {
+                                "type": "button",
+                                "action": {
+                                    "type": "uri",
+                                    "label": "เข้ารับโปรโมชั่น",
+                                    "uri": link_3
+                                },
+                                "color": "#FFFFFF"
+                                },
+                                {
+                                "type": "button",
+                                "action": {
+                                    "type": "uri",
+                                    "label": "แชร์เลย",
+                                    "uri": Uri
+                                },
+                                "style": "primary",
+                                "color": "#0E86D4"
+                                }
+                            ],
+                            "backgroundColor": "#000000"
+                            }
+                        }
+                        ]
+                    }
+                }
+                ])
+            }catch(err){ 
+                console.error(err)
+            }
+        }
+    </script>
+</body>
+</html>

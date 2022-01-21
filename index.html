@@ -11,12 +11,12 @@
   <body>
     <div class="flex justify-center">
       <div id="shwcase" style="display: none;" class="w-2/5 mt-5 rounded overflow-hidden shadow-lg p-5 duration-300">
-        <img class="rounded-full" style="width: 50%" id="pictureUrl">
+        <img class="rounded-full" style="width: 50%; margin: auto;" id="pictureUrl">
         <div class="py-4 flex-wrap">
           <p class="text-gray-700 text-base" hidden></p>
           <p class="font-bold text-xl mb-2" id="displayName"></p>
           <p class="text-gray-700 text-base" id="statusMessage"></p>
-          <p class="text-gray-700 text-base">V. 1.2.6</p>
+          <p class="text-gray-700 text-base">V. 2.1.2</p>
           <ul id="tabs" class="inline-flex w-full pt-2 duration-300">
             <li class="px-4 py-2 -mb-px font-semibold text-gray-800 border-b-2 border-blue-400 rounded-t opacity-50">
               <a id="default-tab" href="#first">Card</a>
@@ -28,17 +28,33 @@
           <!-- Tab Contents -->
           <div id="tab-contents">
             <div id="first" class="p-4">
-              <p><b>Button Url :</b> </p><input type="text" name="buttonUrl" id="buttonUrl" class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700" placeholder="Enter Url When press">
-              <p><b>Image Url :</b> </p><input type="text" name="imageUrl" id="imageUrl" class="w-full mt-2 mb-2 px-4 py-2 border rounded-lg text-gray-700" placeholder="Enter url image from https://www.picz.in.th/">
+              <b>Button Url :</b><input type="text" name="buttonUrl" id="buttonUrl" class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700" placeholder="Enter Url When press">
+              <b>Image Url :</b><input type="text" name="imageUrl" id="imageUrl" class="w-full mt-2 mb-2 px-4 py-2 border rounded-lg text-gray-700" placeholder="Enter url image from https://www.picz.in.th/">
               <p><a href="https://www.picz.in.th/" target="_blank" class="text-blue-500 align-center mb-6">รับลิงค์รูปภาพที่นี่</a></p>
-              <p><b>Caption :</b> </p><input type="text" name="description" id="description" class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700" placeholder="Enter Description">
+              <b>Caption :</b><input type="text" name="description" id="description" class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700" placeholder="Enter Description">
               <div class="flex justify-around space-arounded pt-4">
                 <button id="btnShare" onclick="shareMsg()" class="bg-green-500 text-white rounded hover:bg-green-600 duration-300 shadow-md p-3">Send Card</button><br>
                 <button id="btnLogOut" onclick="logOut()" class="bg-red-500 text-white rounded hover:bg-red-600 duration-300 shadow-md p-3">Log Out</button><br>
               </div>
             </div>
             <div id="second" class="hidden p-4">
-              <button id="btnCarousel" onclick="carousel()" class="bg-green-500 text-white rounded hover:bg-green-600 duration-300 shadow-md p-3">Carousel</button>
+              <b class="text-xl mb-4">Caption :</b><input type="text" id="carousel-caption" class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700" placeholder="Enter Description">
+              <p class="text-xl font-bold mb-4">การ์ดที่ 1</p>
+              <b>Link :</b><input type="text" id="carousel-button-1" class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700" placeholder="Enter Url When press">
+              <b>Image :</b><input type="text" id="carousel-image-1" class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700" placeholder="Enter url image from https://www.picz.in.th/">
+              <hr class="mb-4" />
+              <p class="text-xl font-bold mb-4">การ์ดที่ 2</p>
+              <b>Link :</b><input type="text" id="carousel-button-2" class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700" placeholder="Enter Url When press">
+              <b>Link :</b><input type="text" id="carousel-image-2" class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700" placeholder="Enter url image from https://www.picz.in.th/">
+              <hr class="mb-4" />
+              <p class="text-xl font-bold mb-4">การ์ดที่ 3</p>
+              <b>Link :</b><input type="text" id="carousel-button-3" class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700" placeholder="Enter Url When press">
+              <b>Link :</b><input type="text" id="carousel-image-3" class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700" placeholder="Enter url image from https://www.picz.in.th/">
+              <br />
+              <div class="flex justify-around space-around pt-4">
+                <button id="btnCarousel" onclick="carousel()" class="bg-green-500 text-white rounded hover:bg-green-600 duration-300 shadow-md p-3">Send Carousel</button>
+                <button id="btnLogOut" onclick="logOut()" class="bg-red-500 text-white rounded hover:bg-red-600 duration-300 shadow-md p-3">Log Out</button><br>
+              </div>
             </div>
           </div>
         </div>
@@ -92,11 +108,25 @@ document.getElementById("default-tab").click();
 
     async function carousel() {
 
+      const caption = document.getElementById('carousel-caption').value
+
+      const link_1 = document.getElementById('carousel-button-1').value
+      const image_1 = document.getElementById('carousel-image-1').value
+
+      const link_2 = document.getElementById('carousel-button-2').value
+      const image_2 = document.getElementById('carousel-image-2').value
+
+      const link_3 = document.getElementById('carousel-button-3').value
+      const image_3 = document.getElementById('carousel-image-3').value
+
+      const Endcode = encodeURIComponent(`/corousel.html?caption=${caption}&link1=${link_1}&image1=${image_1}&link2=${link_2}&image2=${image_2}&link3=${link_3}&image3=${image_3}`)
+      const Uri = `line://app/1656810289-OJ1z25lK/?liff.state=${Endcode}`
+
       try{
         const res = await liff.shareTargetPicker([
           {
               "type": "flex",
-              "altText": "description",
+              "altText": caption,
               "contents": 
               {
                 "type": "carousel",
@@ -105,9 +135,10 @@ document.getElementById("default-tab").click();
                     "type": "bubble",
                     "hero": {
                       "type": "image",
-                      "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
+                      "url": image_1,
                       "size": "full",
-                      "aspectMode": "cover"
+                      "aspectMode": "cover",
+                      "backgroundColor": "#000000"
                     },
                     "footer": {
                       "type": "box",
@@ -118,7 +149,7 @@ document.getElementById("default-tab").click();
                           "action": {
                             "type": "uri",
                             "label": "สมัครสมาชิก",
-                            "uri": "http://linecorp.com/"
+                            "uri": link_1,
                           },
                           "color": "#FFFFFF"
                         },
@@ -127,7 +158,7 @@ document.getElementById("default-tab").click();
                           "action": {
                             "type": "uri",
                             "label": "แชร์เลย",
-                            "uri": "http://linecorp.com/"
+                            "uri": Uri
                           },
                           "style": "primary",
                           "color": "#FF0000"
@@ -140,9 +171,10 @@ document.getElementById("default-tab").click();
                     "type": "bubble",
                     "hero": {
                       "type": "image",
-                      "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
+                      "url": image_2,
                       "size": "full",
-                      "aspectMode": "cover"
+                      "aspectMode": "cover",
+                      "backgroundColor": "#000000"
                     },
                     "footer": {
                       "type": "box",
@@ -153,7 +185,7 @@ document.getElementById("default-tab").click();
                           "action": {
                             "type": "uri",
                             "label": "เข้ารับโปรโมชั่น",
-                            "uri": "http://linecorp.com/"
+                            "uri": link_2
                           },
                           "color": "#FFFFFF"
                         },
@@ -162,7 +194,7 @@ document.getElementById("default-tab").click();
                           "action": {
                             "type": "uri",
                             "label": "แชร์เลย",
-                            "uri": "http://linecorp.com/"
+                            "uri": Uri
                           },
                           "style": "primary"
                         }
@@ -174,9 +206,10 @@ document.getElementById("default-tab").click();
                     "type": "bubble",
                     "hero": {
                       "type": "image",
-                      "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
+                      "url": image_3,
                       "size": "full",
-                      "aspectMode": "cover"
+                      "aspectMode": "cover",
+                      "backgroundColor": "#000000"
                     },
                     "footer": {
                       "type": "box",
@@ -187,7 +220,7 @@ document.getElementById("default-tab").click();
                           "action": {
                             "type": "uri",
                             "label": "เข้ารับโปรโมชั่น",
-                            "uri": "http://linecorp.com/"
+                            "uri": link_3
                           },
                           "color": "#FFFFFF"
                         },
@@ -196,7 +229,7 @@ document.getElementById("default-tab").click();
                           "action": {
                             "type": "uri",
                             "label": "แชร์เลย",
-                            "uri": "http://linecorp.com/"
+                            "uri": Uri
                           },
                           "style": "primary",
                           "color": "#0E86D4"
@@ -375,13 +408,13 @@ document.getElementById("default-tab").click();
         // getUserProfile()
         // getContext()
         // getFriendship()
-      if(liff.isLoggedIn()){
-        getEnvironment()
-        getUserProfile()
-        getFriendship()
-      }else{
-        liff.login()
-      }
+      // if(liff.isLoggedIn()){
+      //   getEnvironment()
+      //   getUserProfile()
+      //   getFriendship()
+      // }else{
+      //   liff.login()
+      // }
     }
     main()
   </script>
