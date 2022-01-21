@@ -16,7 +16,8 @@
           <p class="text-gray-700 text-base" hidden></p>
           <p class="font-bold text-xl mb-2" id="displayName"></p>
           <p class="text-gray-700 text-base" id="statusMessage"></p>
-          <p class="text-gray-700 text-base">V. 2.1.2</p>
+          <p class="text-gray-700 text-base">V. 2.1.4</p>
+          <p><a href="https://www.picz.in.th/" target="_blank" class="text-blue-500 border shadow-md bg-blue-600 align-center mb-6">รับลิงค์รูปภาพที่นี่</a></p>
           <ul id="tabs" class="inline-flex w-full pt-2 duration-300">
             <li class="px-4 py-2 -mb-px font-semibold text-gray-800 border-b-2 border-blue-400 rounded-t opacity-50">
               <a id="default-tab" href="#first">Card</a>
@@ -28,28 +29,31 @@
           <!-- Tab Contents -->
           <div id="tab-contents">
             <div id="first" class="p-4">
-              <b>Button Url :</b><input type="text" name="buttonUrl" id="buttonUrl" class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700" placeholder="Enter Url When press">
-              <b>Image Url :</b><input type="text" name="imageUrl" id="imageUrl" class="w-full mt-2 mb-2 px-4 py-2 border rounded-lg text-gray-700" placeholder="Enter url image from https://www.picz.in.th/">
-              <p><a href="https://www.picz.in.th/" target="_blank" class="text-blue-500 align-center mb-6">รับลิงค์รูปภาพที่นี่</a></p>
-              <b>Caption :</b><input type="text" name="description" id="description" class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700" placeholder="Enter Description">
+              <b>ชื่อปุ่ม :</b><input type="text" name="card-label" id="card-label" class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700" placeholder="Enter Url When press">
+              <b>ลิงค์ปุ่ม :</b><input type="text" name="card-button" id="card-button" class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700" placeholder="Enter Url When press">
+              <b>ลิงค์รูปภาพ :</b><input type="text" name="card-image" id="card-image" class="w-full mt-2 mb-2 px-4 py-2 border rounded-lg text-gray-700" placeholder="Enter url image from https://www.picz.in.th/">
+              <b>แคปชั่น :</b><input type="text" name="caption" id="caption" class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700" placeholder="Enter Description">
               <div class="flex justify-around space-arounded pt-4">
                 <button id="btnShare" onclick="shareMsg()" class="bg-green-500 text-white rounded hover:bg-green-600 duration-300 shadow-md p-3">Send Card</button><br>
                 <button id="btnLogOut" onclick="logOut()" class="bg-red-500 text-white rounded hover:bg-red-600 duration-300 shadow-md p-3">Log Out</button><br>
               </div>
             </div>
             <div id="second" class="hidden p-4">
-              <b class="text-xl mb-4">Caption :</b><input type="text" id="carousel-caption" class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700" placeholder="Enter Description">
+              <b class="text-xl mb-4">แคปชั่น :</b><input type="text" id="carousel-caption" class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700" placeholder="Enter Description">
               <p class="text-xl font-bold mb-4">การ์ดที่ 1</p>
-              <b>Link :</b><input type="text" id="carousel-button-1" class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700" placeholder="Enter Url When press">
-              <b>Image :</b><input type="text" id="carousel-image-1" class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700" placeholder="Enter url image from https://www.picz.in.th/">
+              <b>ชื่อปุ่ม :</b><input type="text" id="carousel-label-1" class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700" placeholder="Enter Url When press">
+              <b>ลิงค์ปุ่ม :</b><input type="text" id="carousel-button-1" class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700" placeholder="Enter Url When press">
+              <b>ลิงค์รูปภาพ :</b><input type="text" id="carousel-image-1" class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700" placeholder="Enter url image from https://www.picz.in.th/">
               <hr class="mb-4" />
               <p class="text-xl font-bold mb-4">การ์ดที่ 2</p>
-              <b>Link :</b><input type="text" id="carousel-button-2" class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700" placeholder="Enter Url When press">
-              <b>Image :</b><input type="text" id="carousel-image-2" class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700" placeholder="Enter url image from https://www.picz.in.th/">
+              <b>ชื่อปุ่ม :</b><input type="text" id="carousel-label-2" class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700" placeholder="Enter Url When press">
+              <b>ลิงค์ปุ่ม :</b><input type="text" id="carousel-button-2" class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700" placeholder="Enter Url When press">
+              <b>ลิงค์รูปภาพ :</b><input type="text" id="carousel-image-2" class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700" placeholder="Enter url image from https://www.picz.in.th/">
               <hr class="mb-4" />
               <p class="text-xl font-bold mb-4">การ์ดที่ 3</p>
-              <b>Link :</b><input type="text" id="carousel-button-3" class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700" placeholder="Enter Url When press">
-              <b>Image :</b><input type="text" id="carousel-image-3" class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700" placeholder="Enter url image from https://www.picz.in.th/">
+              <b>ชื่อปุ่ม :</b><input type="text" id="carousel-label-3" class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700" placeholder="Enter Url When press">
+              <b>ลิงค์ปุ่ม :</b><input type="text" id="carousel-button-3" class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700" placeholder="Enter Url When press">
+              <b>ลิงค์รูปภาพ :</b><input type="text" id="carousel-image-3" class="w-full mt-2 mb-6 px-4 py-2 border rounded-lg text-gray-700" placeholder="Enter url image from https://www.picz.in.th/">
               <br />
               <div class="flex justify-around space-around pt-4">
                 <button id="btnCarousel" onclick="carousel()" class="bg-green-500 text-white rounded hover:bg-green-600 duration-300 shadow-md p-3">Send Carousel</button>
@@ -110,16 +114,19 @@ document.getElementById("default-tab").click();
 
       const caption = document.getElementById('carousel-caption').value
 
+      const label_1 = document.getElementById('carousel-label-1').value
       const link_1 = document.getElementById('carousel-button-1').value
       const image_1 = document.getElementById('carousel-image-1').value
 
+      const label_2 = document.getElementById('carousel-label-2').value
       const link_2 = document.getElementById('carousel-button-2').value
       const image_2 = document.getElementById('carousel-image-2').value
 
+      const label_3 = document.getElementById('carousel-label-3').value
       const link_3 = document.getElementById('carousel-button-3').value
       const image_3 = document.getElementById('carousel-image-3').value
 
-      const Endcode = encodeURIComponent(`/carousel.html?caption=${caption}&link1=${link_1}&image1=${image_1}&link2=${link_2}&image2=${image_2}&link3=${link_3}&image3=${image_3}`)
+      const Endcode = encodeURIComponent(`/carousel.html?caption=${caption}&label1=${label_1}&link1=${link_1}&image1=${image_1}&label2=${label_2}&link2=${link_2}&image2=${image_2}&label3=${label_3}&link3=${link_3}&image3=${image_3}`)
       const Uri = `https://liff.line.me/1656810289-OJ1z25lK/?liff.state=${Endcode}`
 
       console.log(Endcode)
@@ -150,7 +157,7 @@ document.getElementById("default-tab").click();
                           "type": "button",
                           "action": {
                             "type": "uri",
-                            "label": "สมัครสมาชิก",
+                            "label": label_1,
                             "uri": link_1,
                           },
                           "color": "#FFFFFF"
@@ -186,7 +193,7 @@ document.getElementById("default-tab").click();
                           "type": "button",
                           "action": {
                             "type": "uri",
-                            "label": "เข้ารับโปรโมชั่น",
+                            "label": label_2,
                             "uri": link_2
                           },
                           "color": "#FFFFFF"
@@ -221,7 +228,7 @@ document.getElementById("default-tab").click();
                           "type": "button",
                           "action": {
                             "type": "uri",
-                            "label": "เข้ารับโปรโมชั่น",
+                            "label": label_3,
                             "uri": link_3
                           },
                           "color": "#FFFFFF"
@@ -269,26 +276,26 @@ document.getElementById("default-tab").click();
     }
 
     async function shareMsg() {
-      const urlImage = document.getElementById('imageUrl').value
-      const des = document.getElementById('description').value
-      const buttonUrl = document.getElementById('buttonUrl').value
-      const testEndcode = encodeURIComponent(`/share.html?buttonUrl=${buttonUrl}&urlimage=${urlImage}&des=${des}`)
-      const testUri = `line://app/1656810289-OJ1z25lK/?liff.state=${testEndcode}`
+      const cardImage = document.getElementById('card-image').value
+      const caption = document.getElementById('card-caption').value
+      const cardButton = document.getElementById('card-button').value
+      const Endcode = encodeURIComponent(`/share.html?buttonUrl=${cardButton}&urlimage=${cardImage}&des=${caption}`)
+      const Uri = `https://liff.line.me/1656810289-OJ1z25lK/?liff.state=${Endcode}`
       try{
         const res =  await liff.shareTargetPicker([
           {
               "type": "flex",
-              "altText": des , // Description
+              "altText": caption , // Description
               "contents": {
                 "type": "bubble",
                 "hero": {
                   "type": "image",
-                  "url": urlImage ,
+                  "url": cardImage ,
                   "size": "full",
                   "aspectMode": "cover",
                   "action": {
                     "type": "uri",
-                    "uri": buttonUrl
+                    "uri": cardButton
                   }
                 },
                 "footer": {
@@ -303,7 +310,7 @@ document.getElementById("default-tab").click();
                       "action": {
                         "type": "uri",
                         "label": "สมัครสมาชิก",
-                        "uri": buttonUrl
+                        "uri": cardButton
                       },
                       "color": "#FFFFFF"
                     },
@@ -314,7 +321,7 @@ document.getElementById("default-tab").click();
                       "action": {
                         "type": "uri",
                         "label": "แชร์เลย",
-                        "uri": testUri
+                        "uri": Uri
                       },
                       "color": "#FF0000"
                     },
