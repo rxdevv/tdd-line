@@ -127,7 +127,7 @@ document.getElementById("default-tab").click();
       const image_3 = document.getElementById('carousel-image-3').value
 
       const Endcode = encodeURIComponent(`/carousel.html?caption=${caption}&label1=${label_1}&link1=${link_1}&image1=${image_1}&label2=${label_2}&link2=${link_2}&image2=${image_2}&label3=${label_3}&link3=${link_3}&image3=${image_3}`)
-      const Uri = `https://liff.line.me/1656810289-OJ1z25lK/?liff.state=${Endcode}`
+      const Uri = `line://app/1656810289-OJ1z25lK/?liff.state=${Endcode}`
 
       console.log(Endcode)
 
@@ -282,7 +282,7 @@ document.getElementById("default-tab").click();
       const caption = document.getElementById('card-caption').value
       const cardButton = document.getElementById('card-button').value
       const Endcode = encodeURIComponent(`/share.html?button=${cardButton}&image=${cardImage}&caption=${caption}&label=${cardLabel}`)
-      const Uri = `https://liff.line.me/1656810289-OJ1z25lK/?liff.state=${Endcode}`
+      const Uri = `line://app/1656810289-OJ1z25lK/?liff.state=${Endcode}`
       try{
         const res =  await liff.shareTargetPicker([
           {
