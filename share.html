@@ -7,7 +7,6 @@
         <title>SHARE</title>
     </head>
     <body>
-        <p hidden id="error"><b>Error :</b></p>
         <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
         <script>
         const queryString = window.location.search
@@ -83,7 +82,6 @@
                     }
                 ])
             }catch(error){
-                document.getElementById('error').append(error)
                 console.log(error)
             }finally{
                 liff.closeWindow()

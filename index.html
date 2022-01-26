@@ -433,7 +433,6 @@ document.getElementById("default-tab").click();
 
     async function main() {
       await liff.init({ liffId: "1656810289-OJ1z25lK" })
-      document.getElementById("isLoggedIn").append(liff.isLoggedIn())
         // getEnvironment()
         // getUserProfile()
         // getContext()
@@ -441,7 +440,6 @@ document.getElementById("default-tab").click();
       if(liff.isLoggedIn()){
         getEnvironment()
         getUserProfile()
-        getFriendship()
       }else{
         liff.login()
       }
