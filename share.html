@@ -26,7 +26,7 @@
         }
         main()
         async function shareMsg(label, button, image, caption){
-            const Uri = `line://app/1656810289-OJ1z25lK/?liff.state=${encodeURIComponent(`/share.html?button=${button}&image=${image}&caption=${caption}&label=${label}`)}`
+            const Uri = `https://liff.line.me/1656810289-OJ1z25lK/?liff.state=${encodeURIComponent(`/share.html?button=${button}&image=${image}&caption=${caption}&label=${label}`)}`
             try{
                 await liff.shareTargetPicker([
                 {
@@ -86,7 +86,6 @@
                 document.getElementById('error').append(error)
                 console.log(error)
             }finally{
-                liff.closeWindow()
             }
         }
     </script>
